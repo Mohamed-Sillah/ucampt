@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketplace page</title>
+    <link rel="stylesheet" href="css/style.css">
+    
+</head>
+<body>
+    <header>
+        <span>
+            <img src="images/ucamptlogo.jpg" width="52px" height="52px" style="border-radius: 12px;" alt="unimak campus trade logo">
+        </span>
+        <nav>
+            <ul>
+                <li><a href="/admin_Home.html">Home</a></li>
+                <li><a href="/admin_marketplace.html">Marketplace</a></li>
+                <li><a href="/adminDashboard.html">Dashboard</a></li>
+                <li><a href="/index.htm">Logout</a></li>
+                <li><a href=""><img src="images/Screenshot 2026-03-12 072322.png" width="20px" height="20px"></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main style="min-height: 190vh;">
+        <h1>Marketplace</h1>
+     
+        <input type="text" id="searchInput" placeholder="Search for textbooks, dorm supplies......." onkeyup="searchProduct()">
+        <div class="card_container" style="margin-top: 4rem; ">
+            <div class="card"
+                data-name="Apple Computer"
+                data-price="Le 8,500"
+                data-category="Electronics"
+                data-posted="March 10, 2026"
+                data-description="Fairly used Apple desktop computer."
+                data-seller="Mohamed Sillah"
+                data-contact="+23278123456"
+                data-payment="Orange Money"
+                data-notes="Pickup on campus"
+                data-image="images/apple pc.jpg"
+            >
+                <figure class="product_img">
+                    <img src="images/apple pc.jpg" width="400px" height="185px" style="border-radius: 7px;"  alt="">
+                </figure>
+                <h3 class="product_name">Apple Computer</h3>
+                <h3>Fairly Use</h3>
+                <h3>Le 8,500</h3>
+                <a href="product.html" >view Details</a>
+            </div>
+
+            <div class="card">
+                <figure class="product_img">
+                    <img src="images/red caap.jpg" width="250px" height="auto" style="border-radius: 12px;" alt="">
+                </figure>
+                <h3 class="product_name">Men Cap</h3>
+                <h3>Brand New</h3>
+                <h3>Le 150</h3>
+                <a href="product.html">view Details</a>
+            </div>
+
+            <div class="card">
+                <figure class="product_img">
+                    <img src="images/waste bag.jpg" width="250px" height="auto" style="border-radius: 12px;" alt="">
+                </figure>
+                <h3 class="product_name">Waste Bag </h3>
+                <h3>Brand New</h3>
+                <h3>Le 200</h3>
+                <a href="product.html">view Details</a>
+            </div>
+            <div class="card">
+                <figure class="product_img">
+                    <img src="images/femaleHangBag.jpeg" width="250px" height="auto" style="border-radius: 12px;" alt="">
+                </figure>
+                <h3 class="product_name">Hang Bag </h3>
+                <h3>Brand New</h3>
+                <h3>Le 350</h3>
+                <a href="product.html">view Details</a>
+            </div>
+            <div class="card">
+                <figure class="product_img">
+                    <img src="images/hoodie hat.jpg" width="250px" height="auto" style="border-radius: 12px;" alt="">
+                </figure>
+                <h3 class="product_name">Hoodie Hat </h3>
+                <h3>Brand New</h3>
+                <h3>Le 100</h3>
+                <a href="product.html">view Details</a>
+            </div>
+            <div class="card">
+                <figure class="product_img">
+                    <img src="images/hot plate.jpg" width="250px" height="200px" style="border-radius: 12px;" alt="">
+                </figure>
+                <h3 class="product_name">Hot Plate </h3>
+                <h3>Brand New</h3>
+                <h3>Le 400</h3>
+                <a href="product.html">view Details</a>
+            </div>
+            <div id="productDetails" style="display:none; margin-top:40px;">
+                
+                <div style="display:flex; gap:40px;">
+
+                    <img id="detailImage" width="350">
+
+                    <div>
+
+                        <h2 id="detailName"></h2>
+                        <p><strong>Price:</strong> <span id="detailPrice"></span></p>
+                        <p><strong>Category:</strong> <span id="detailCategory"></span></p>
+                        <p><strong>Posted At:</strong> <span id="detailPosted"></span></p>
+
+                        <p><strong>Description:</strong></p>
+                        <p id="detailDescription"></p>
+
+                        <h3>Seller Information</h3>
+
+                        <p><strong>Name:</strong> <span id="detailSeller"></span></p>
+                        <p><strong>Contact:</strong> <span id="detailContact"></span></p>
+                        <p><strong>Payment:</strong> <span id="detailPayment"></span></p>
+                        <p><strong>Notes:</strong> <span id="detailNotes"></span></p>
+
+                        <button id="callBtn">Call</button>
+                        <button id="whatsappBtn">WhatsApp</button>
+                        <button id="copyBtn">Copy Contact</button>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        
+    </main>
+    <footer style="text-align: center;">
+        <p >&copy;2026 Unimak Campus Trade (Ucampt). All rights resereved.</p>
+        <p> Contact: ucampt@unimak.com</p>
+    </footer>
+    <script src="js/main.js"></script>
+</body>
+</html>

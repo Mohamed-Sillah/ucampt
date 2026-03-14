@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unimak Campus Trade</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        main{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 160vh;
+        }
+        .p{
+            width: 37ch;
+            text-align: center;
+            color: gray;
+            margin-top: 0;
+        }
+        form{
+            border: 1px solid gray;
+            width: 300px;
+            height: 270px;
+            border-radius: 12px;
+            padding: 20px;
+
+        }
+        input {
+            width: 280px;
+            padding: 10px;
+            border-radius: 7px;
+            border: 1px solid gray;
+            font-weight: 500;
+            color: gray;
+        }
+        .forgot_p{
+            display: flex;
+            justify-content: end;
+            margin-top: 0.7rem;
+            text-decoration: none;
+        }
+        .button1{
+            width: 250px;
+            padding: 10px;
+            display: flex;
+            margin-left: 1.5rem;
+            border-radius: 7px;
+            border: 0;
+            justify-content: center;
+            background-color: rgb(7, 7, 167);
+            color: white;
+            
+        }
+        .button2{
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            border-radius: 7px;
+            border-top: 0;
+            border-bottom:2px solid rgb(204, 201, 201);
+            border-left: 2px solid rgb(204, 201, 201);
+            border-right: 2px solid rgb(204, 201, 201);
+            background-color: #ffff;
+            margin-top: 1rem;
+            color: rgb(43, 42, 42);
+        }
+        .button2 img{
+            width: 30px;
+            border-radius: 7px;
+        }
+        .span{
+            display: flex;
+            gap: 0.7rem;
+            margin-top: 1rem;
+            justify-content: center;
+            align-items: center;
+            margin-top: 0.5rem;
+        }
+        .span img {
+            width: 25px;
+            height: 25px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <span class="ucmpt_logo">
+            <img src="images/ucamptlogo.jpg" width="52px" height="52px" style="border-radius: 12px;" alt="unimak campus trade logo">
+        </span>
+        <nav>
+            <ul>
+                <li><a href="./index.htm">Home</a></li>
+                <li><a href="/marketplace.html">Marketplace</a></li>
+                <li><a href="/adminLogin.html">Admin Login</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <figure>
+            <img src="images/authenticationlogo.jpg" width="80px" height="80px" style="border-radius: 12px;" alt="">
+        </figure>
+        <h1 style="margin-top: 0";>Admin Portal</h1>
+        <p class="p">secure access for verified organization authenticators to manage inventory and  orders</p>
+        <div id="loginError" style="color: red; text-align:center; margin-bottom:12px; display: none;"></div>
+        <form id="adminLoginForm" action="">
+            <h3>University Email</h3>
+            <input id="adminEmail" type="email" placeholder="admin@unimak.edu" required>
+            <h3>Password</h3>
+            <input id="adminPassword" type="password" placeholder="Enter Password" required> <br>
+            <a href="./forgotPassword.html" class="forgot_p">Forgot Password?</a> <br>
+            <button class="button1" type="submit">Login To Dashboard</button>
+        </form>
+        <h2 style="color: gray;">Not An Administrator ?</h2>
+        <button class="button2">
+            <img src="images/marketplaceicon.jpg"  alt="">
+            <h3>Return To Marketplace</h3>
+        </button>
+        <span class="span">
+            <img src="images/authenticationlogo.jpg" alt="">
+            <h4>SECURED CONNECTION</h4>
+        </span>
+        <h4 style="color: rgb(236, 231, 231);">Ucampt Admin Access v2.40</h4>
+    </main>
+    <footer style="text-align: center;">
+        <p >&copy;2026 Unimak Campus Trade (Ucampt). All rights resereved.</p>
+        <p> Contact: ucampt@unimak.com</p>
+    </footer>
+   
+    
+    <script src="js/main.js"></script>
+</body>
+</html>

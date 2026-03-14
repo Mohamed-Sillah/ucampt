@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Product Details</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .container{ display:flex; gap:24px; align-items:flex-start; padding:24px; max-width:1100px; margin:24px auto; }
+    .left{ flex:1 1 55%; }
+    .right{ flex:1 1 45%; }
+    .product-image{ width:100%; height:auto; border-radius:8px; object-fit:cover; box-shadow:0 6px 18px rgba(0,0,0,0.12); }
+    .meta { background:#fff; padding:16px; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.06); }
+    .meta h1{ margin:0 0 8px 0; }
+    .meta p{ margin:6px 0; }
+    .actions{ margin-top:12px; display:flex; gap:8px; }
+    @media(max-width:800px){ .container{ flex-direction:column; } }
+  </style>
+</head>
+<body>
+  <header style="padding:12px 24px; border-bottom:1px solid #eee; display:flex; justify-content:space-between; align-items:center;">
+    <h3 style="margin:0">Product Details</h3>
+    <nav>
+      <a href="admin_marketplace.html" style="margin-right:12px">Back to Marketplace</a>
+      <a href="adminDashboard.html">Dashboard</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="left">
+        <img id="fullImage" class="product-image" src="images/placeholder.png" alt="Product image">
+      </div>
+      <div class="right meta">
+        <h1 id="fullName">Product Name</h1>
+        <p><strong>Price:</strong> <span id="fullPrice"></span></p>
+        <p><strong>Category:</strong> <span id="fullCategory"></span></p>
+        <p><strong>Posted:</strong> <span id="fullPosted"></span></p>
+        <hr>
+        <h3>Description</h3>
+        <p id="fullDescription"></p>
+        <hr>
+        <h3>Seller</h3>
+        <p><strong>Name:</strong> <span id="fullSeller"></span></p>
+        <p><strong>Contact:</strong> <span id="fullContact"></span></p>
+        <p><strong>Payment:</strong> <span id="fullPayment"></span></p>
+        <p><strong>Notes:</strong> <span id="fullNotes"></span></p>
+        <div class="actions">
+          <button id="callFull">Call</button>
+          <button id="whatsappFull">WhatsApp</button>
+          <button id="copyFull">Copy Contact</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/main.js"></script>
+  <script>
+    // Populate from sessionStorage.currentProduct
+    document.addEventListener('DOMContentLoaded', function(){
+      try{
+        const raw = sessionStorage.getItem('currentProduct');
+        if (!raw) return;
+        const p = JSON.parse(raw);
+        document.getElementById('fullName').textContent = p.name || '';
+        document.getElementById('fullPrice').textContent = p.price || '';
+        document.getElementById('fullCategory').textContent = p.category || '';
+        document.getElementById('fullPosted').textContent = p.posted || '';
+        document.getElementById('fullDescription').textContent = p.description || '';
+        document.getElementById('fullSeller').textContent = p.seller || '';
+        document.getElementById('fullContact').textContent = p.contact || '';
+        document.getElementById('fullPayment').textContent = p.payment || '';
+        document.getElementById('fullNotes').textContent = p.notes || '';
+        const img = document.getElementById('fullImage');
+        if (p.image) img.src = p.image;
+
+        document.getElementById('callFull').onclick = () => { window.location.href = 'tel:' + p.contact; };
+        document.getElementById('whatsappFull').onclick = () => { window.open('https://wa.me/' + (p.contact || '').replace('+','')); };
+        document.getElementById('copyFull').onclick = () => { navigator.clipboard.writeText(p.contact || ''); alert('Contact copied!'); };
+      }catch(e){ console.error(e); }
+    });
+  </script>
+</body>
+</html>
