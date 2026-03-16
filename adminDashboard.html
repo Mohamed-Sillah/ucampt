@@ -1,180 +1,156 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard</title>
-    <link rel="stylesheet" href="css/style.css">
-    <style>
-       
-        /* Table styling: blue header, white text, centered alignment, good spacing */
-        table{
-            width: 80%;
-            border-collapse: collapse; /* collapse so header cells join with no gaps */
-            margin-top: 1rem;
-            margin-left: 10%;
-        }
-        thead th{
-            background-color: #0756e7;
-            color: #ffffff;
-            padding: 14px 18px;
-            text-align: center;
-            vertical-align: middle;
-            font-weight: 700;
-        }
-        
-
-        /* Edit/Delete button styles */
-        .btn-edit{
-            background-color: #28a745;
-            color: #ffffff;
-            border: none;
-            padding: 6px 12px;
-            border-radius: 6px;
-            cursor: pointer;
-            margin-right: 6px;
-            font-weight: 600;
-        }
-        .btn-edit:hover{ background-color: #218838; }
-
-        .btn-delete{
-            background-color: #dc3545;
-            color: #ffffff;
-            border: none;
-            padding: 6px 12px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: 600;
-        }
-        .btn-delete:hover{ background-color: #c82333; }
-        tbody td{
-            background: #ffffff;
-            padding: 12px 16px;
-            text-align: center;
-            vertical-align: middle;
-            border-radius: 6px;
-        }
-        tbody tr td img{
-            display: inline-block;
-            vertical-align: middle;
-            border-radius: 6px;
-        }
-        .dashboard_heading h1{
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-        .dashboard_heading h5{
-            margin-left: 42%;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    table {
+      width: 80%;
+      border-collapse: collapse;
+      margin: 1rem auto 0;
+    }
+    thead th {
+      background-color: #0756e7;
+      color: #fff;
+      padding: 14px 18px;
+      text-align: center;
+      font-weight: 700;
+    }
+    tbody td {
+      background: #fff;
+      padding: 12px 16px;
+      text-align: center;
+      vertical-align: middle;
+      border-radius: 6px;
+    }
+    tbody tr td img {
+      display: inline-block;
+      vertical-align: middle;
+      border-radius: 6px;
+    }
+    .btn-edit {
+      background-color: #28a745;
+      color: #fff;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-right: 6px;
+      font-weight: 600;
+    }
+    .btn-edit:hover { background-color: #218838; }
+    .btn-delete {
+      background-color: #dc3545;
+      color: #fff;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    .btn-delete:hover { background-color: #c82333; }
+    .dashboard_heading {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  </style>
 </head>
 <body>
-    <header class="admin_header">
-         <span>
-            <h3 style="color: blue; font-weight: 800;">ADMIN PORTAL</h3>
-            <h4>Dashboard</h4>
-         </span>
-        <nav>
-            <ul>
-                <li><a href="./adminDashboard.html">Dashboard</a></li>
-                <li><a href="createListing.html">Create Listing</a></li>
-                <li><a href="/admin_Home.html">Home</a></li>
-                <li><a href="#" id="notificationIcon"><img src="images/Screenshot 2026-03-12 072322.png" width="20px" height="20px"></a><span id="notifBadge" style="background:#dc3545;color:#fff;border-radius:10px;padding:2px 6px;font-size:12px;margin-left:6px;display:none;vertical-align:middle"></span></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <div class="dashboard_heading">
-            <h1>Overview</h1>
-            <h5>Listings Managed</h5>
-            <h5 id="listingsCount">7 listings</h5>
-            <h1>Manage Listings</h1>
-        </div>
-        <table>
-            <thead>
-                <tr>
-                    <th>Image</th>
-                    <th>Title</th>
-                    <th>Price</th>
-                    <th>Category</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td><img src="images/electric bike.jpg" width="40" height="40"></td>
-                <td>Electric Bike</td>
-                <td>Le500</td>
-                <td>Electronic</td>
-                <td>
-                    <button class="btn-edit">Edit</button>
-                    <button class="btn-delete">Delete</button>
-                </td>
-            </tr>
-            <tr>
-                <td><img src="images/bt speaker.jpg" width="40" height="40"></td>
-                <td>Bt Speaker</td>
-                <td>Le200</td>
-                <td>Electronic</td>
-                <td>
-                    <button class="btn-edit">Edit</button>
-                    <button class="btn-delete">Delete</button>
-                </td>
-            </tr>
-            <tr>
-                <td><img src="images/ladies belt.jpg" width="40" height="40"></td>
-                <td>Ladies Belt</td>
-                <td>Le150</td>
-                <td>Accesories</td>
-                <td>
-                    <button class="btn-edit">Edit</button>
-                    <button class="btn-delete">Delete</button>
-                </td>
-            </tr>
-            <tr>
-                <td><img src="images/school bag.jpg" width="40" height="40"></td>
-                <td>School Bag</td>
-                <td>Le250</td>
-                <td>Accessories</td>
-                <td>
-                    <button class="btn-edit">Edit</button>
-                    <button class="btn-delete">Delete</button>
-                </td>
-            </tr>
-            <tr>
-                <td><img src="images/hoodie hat.jpg" width="40" height="40"></td>
-                <td>Hoodie Hat</td>
-                <td>Le100</td>
-                <td>Clothing</td>
-                <td>
-                    <button class="btn-edit">Edit</button>
-                    <button class="btn-delete">Delete</button>
-                </td>
-            </tr>
-            <tr>
-                <td><img src="images/hot plate.jpg" width="40" height="40"></td>
-                <td>Hot Plate</td>
-                <td>Le400</td>
-                <td>Electronic</td>
-                <td>
-                    <button class="btn-edit">Edit</button>
-                    <button class="btn-delete">Delete</button>
-                </td>
-            </tr>
-            <tr>
-                <td><img src="images/femaleHangBag.jpeg" width="40" height="40"></td>
-                <td>Hang Bag</td>
-                <td>Le350</td>
-                <td>Accessories</td>
-                <td>
-                    <button class="btn-edit">Edit</button>
-                    <button class="btn-delete">Delete</button>
-                </td>
-            </tr>
-            </tbody>
-        </table>
-    </main>
-    <script src="js/main.js"></script>
+  <header class="admin_header">
+    <span>
+      <h3 style="color:blue; font-weight:800;">ADMIN PORTAL</h3>
+      <h4>Dashboard</h4>
+    </span>
+    <nav>
+      <ul>
+        <li><a href="adminDashboard.html">Dashboard</a></li>
+        <li><a href="createListing.html">Create Listing</a></li>
+        <li><a href="admin_Home.html">Home</a></li>
+        <li>
+          <a href="#" id="notificationIcon">
+            <img src="images/Screenshot 2026-03-12 072322.png" width="20" height="20" alt="Notifications">
+          </a>
+          <span id="notifBadge" style="background:#dc3545;color:#fff;border-radius:10px;padding:2px 6px;font-size:12px;margin-left:6px;display:none;vertical-align:middle;"></span>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div class="dashboard_heading">
+      <h1>Overview</h1>
+      <h5>Listings Managed</h5>
+      <h5 id="listingsCount">7 listings</h5>
+      <h1>Manage Listings</h1>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Image</th>
+          <th>Title</th>
+          <th>Price</th>
+          <th>Category</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><img src="images/electric bike.jpg" width="40" height="40" alt="Electric Bike"></td>
+          <td>Electric Bike</td>
+          <td>Le500</td>
+          <td>Electronics</td>
+          <td><button class="btn-edit">Edit</button><button class="btn-delete">Delete</button></td>
+        </tr>
+        <tr>
+          <td><img src="images/bt speaker.jpg" width="40" height="40" alt="BT Speaker"></td>
+          <td>BT Speaker</td>
+          <td>Le200</td>
+          <td>Electronics</td>
+          <td><button class="btn-edit">Edit</button><button class="btn-delete">Delete</button></td>
+        </tr>
+        <tr>
+          <td><img src="images/ladies belt.jpg" width="40" height="40" alt="Ladies Belt"></td>
+          <td>Ladies Belt</td>
+          <td>Le150</td>
+          <td>Accessories</td>
+          <td><button class="btn-edit">Edit</button><button class="btn-delete">Delete</button></td>
+        </tr>
+        <tr>
+          <td><img src="images/school bag.jpg" width="40" height="40" alt="School Bag"></td>
+          <td>School Bag</td>
+          <td>Le250</td>
+          <td>Accessories</td>
+          <td><button class="btn-edit">Edit</button><button class="btn-delete">Delete</button></td>
+        </tr>
+        <tr>
+          <td><img src="images/hoodie hat.jpg" width="40" height="40" alt="Hoodie Hat"></td>
+          <td>Hoodie Hat</td>
+          <td>Le100</td>
+          <td>Clothing</td>
+          <td><button class="btn-edit">Edit</button><button class="btn-delete">Delete</button></td>
+        </tr>
+        <tr>
+          <td><img src="images/hot plate.jpg" width="40" height="40" alt="Hot Plate"></td>
+          <td>Hot Plate</td>
+          <td>Le400</td>
+          <td>Electronics</td>
+          <td><button class="btn-edit">Edit</button><button class="btn-delete">Delete</button></td>
+        </tr>
+        <tr>
+          <td><img src="images/femaleHangBag.jpeg" width="40" height="40" alt="Hang Bag"></td>
+          <td>Hang Bag</td>
+          <td>Le350</td>
+          <td>Accessories</td>
+          <td><button class="btn-edit">Edit</button><button class="btn-delete">Delete</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </main>
+
+  <script src="js/main.js"></script>
 </body>
+</html>

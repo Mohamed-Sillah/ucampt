@@ -1,27 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Product Details</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Details – Unimak Campus Trade</title>
   <link rel="stylesheet" href="css/style.css">
   <style>
-    .container{ display:flex; gap:24px; align-items:flex-start; padding:24px; max-width:1100px; margin:24px auto; }
-    .left{ flex:1 1 55%; }
-    .right{ flex:1 1 45%; }
-    .product-image{ width:100%; height:auto; border-radius:8px; object-fit:cover; box-shadow:0 6px 18px rgba(0,0,0,0.12); }
-    .meta { background:#fff; padding:16px; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.06); }
-    .meta h1{ margin:0 0 8px 0; }
-    .meta p{ margin:6px 0; }
-    .actions{ margin-top:12px; display:flex; gap:8px; }
-    @media(max-width:800px){ .container{ flex-direction:column; } }
+    .container {
+      display: flex;
+      gap: 24px;
+      align-items: flex-start;
+      padding: 24px;
+      max-width: 1100px;
+      margin: 24px auto;
+    }
+    .left  { flex: 1 1 55%; }
+    .right { flex: 1 1 45%; }
+    .product-image {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      object-fit: cover;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+    }
+    .meta {
+      background: #fff;
+      padding: 16px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    }
+    .meta h1 { margin: 0 0 8px; }
+    .meta p  { margin: 6px 0; }
+    .actions { margin-top: 12px; display: flex; gap: 8px; }
+    @media (max-width: 800px) { .container { flex-direction: column; } }
   </style>
 </head>
 <body>
   <header style="padding:12px 24px; border-bottom:1px solid #eee; display:flex; justify-content:space-between; align-items:center;">
-    <h3 style="margin:0">Product Details</h3>
+    <h3 style="margin:0;">Product Details</h3>
     <nav>
-      <a href="admin_marketplace.html" style="margin-right:12px">Back to Marketplace</a>
+      <a href="marketplace.html" style="margin-right:12px;">Back to Marketplace</a>
       <a href="adminDashboard.html">Dashboard</a>
     </nav>
   </header>
@@ -56,28 +74,26 @@
 
   <script src="js/main.js"></script>
   <script>
-    // Populate from sessionStorage.currentProduct
-    document.addEventListener('DOMContentLoaded', function(){
-      try{
-        const raw = sessionStorage.getItem('currentProduct');
-        if (!raw) return;
-        const p = JSON.parse(raw);
-        document.getElementById('fullName').textContent = p.name || '';
-        document.getElementById('fullPrice').textContent = p.price || '';
-        document.getElementById('fullCategory').textContent = p.category || '';
-        document.getElementById('fullPosted').textContent = p.posted || '';
-        document.getElementById('fullDescription').textContent = p.description || '';
-        document.getElementById('fullSeller').textContent = p.seller || '';
-        document.getElementById('fullContact').textContent = p.contact || '';
-        document.getElementById('fullPayment').textContent = p.payment || '';
-        document.getElementById('fullNotes').textContent = p.notes || '';
-        const img = document.getElementById('fullImage');
-        if (p.image) img.src = p.image;
+    document.addEventListener('DOMContentLoaded', function () {
+      try {
+        const p = JSON.parse(sessionStorage.getItem('currentProduct') || 'null');
+        if (!p) return;
 
-        document.getElementById('callFull').onclick = () => { window.location.href = 'tel:' + p.contact; };
-        document.getElementById('whatsappFull').onclick = () => { window.open('https://wa.me/' + (p.contact || '').replace('+','')); };
-        document.getElementById('copyFull').onclick = () => { navigator.clipboard.writeText(p.contact || ''); alert('Contact copied!'); };
-      }catch(e){ console.error(e); }
+        document.getElementById('fullName').textContent        = p.name        || '';
+        document.getElementById('fullPrice').textContent       = p.price       || '';
+        document.getElementById('fullCategory').textContent    = p.category    || '';
+        document.getElementById('fullPosted').textContent      = p.posted      || '';
+        document.getElementById('fullDescription').textContent = p.description || '';
+        document.getElementById('fullSeller').textContent      = p.seller      || '';
+        document.getElementById('fullContact').textContent     = p.contact     || '';
+        document.getElementById('fullPayment').textContent     = p.payment     || '';
+        document.getElementById('fullNotes').textContent       = p.notes       || '';
+        if (p.image) document.getElementById('fullImage').src  = p.image;
+
+        document.getElementById('callFull').onclick     = () => { window.location.href = 'tel:' + p.contact; };
+        document.getElementById('whatsappFull').onclick = () => { window.open('https://wa.me/' + (p.contact || '').replace('+', '')); };
+        document.getElementById('copyFull').onclick     = () => { navigator.clipboard.writeText(p.contact || ''); alert('Contact copied!'); };
+      } catch (e) { console.error(e); }
     });
   </script>
 </body>

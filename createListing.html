@@ -1,143 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>create listing page</title>
-    <link rel="stylesheet" href="css/style.css">
-    <style>
-        main{
-            display: flex;
-            justify-content: center;
-            
-        }
-        form{
-            margin-top: 3rem;
-            padding: 2.3rem;
-            border: 1px solid #0756e7;
-            width: 350px;
-            border-radius: 7px;
-           
-        }
-        .input{
-            width: 300px;
-            height: 35px;
-            border-radius: 10px;
-            margin-bottom: 1rem;
-        }
-        .price_catego {
-            display: flex;
-            flex-direction: row;
-            gap: 3rem;
-
-        }
-        #price{
-            width: 70px;
-            height: 23px;
-            border-radius: 7px;
-        }
-        #category{
-            width: 120px;
-            height: 30px;
-            border-radius: 7px;
-        }
-        #productTitle {
-            margin-bottom: 1rem;
-        }
-        textarea{
-            width: 300px;
-            height: 80px;
-            border-radius: 7px;
-            margin-bottom: 1rem;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Listing</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    main {
+      display: flex;
+      justify-content: center;
+    }
+    form {
+      margin-top: 3rem;
+      padding: 2.3rem;
+      border: 1px solid #0756e7;
+      width: 350px;
+      border-radius: 7px;
+    }
+    .form-input {
+      width: 100%;
+      height: 35px;
+      border-radius: 10px;
+      margin-bottom: 1rem;
+      box-sizing: border-box;
+    }
+    .price-category {
+      display: flex;
+      gap: 3rem;
+      margin-bottom: 1rem;
+    }
+    #price {
+      width: 70px;
+      height: 23px;
+      border-radius: 7px;
+    }
+    #category {
+      width: 120px;
+      height: 30px;
+      border-radius: 7px;
+    }
+    textarea {
+      width: 100%;
+      height: 80px;
+      border-radius: 7px;
+      margin-bottom: 1rem;
+      box-sizing: border-box;
+    }
+    .btn-publish {
+      width: 100%;
+      margin-top: 12px;
+      padding: 8px 14px;
+      background: #0756e7;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
-    <header class="admin_header">
-         <span>
-            <h3 style="color: blue; font-weight: 800;">ADMIN PORTAL</h3>
-            <h4>Dashboard</h4>
-         </span>
-        <nav>
-            <ul>
-                <li><a href="./adminDashboard.html">Dashboard</a></li>
-                <li><a href="">Create Listing</a></li>
-                <li><a href="/index.htm">Home</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <form id="createListingForm" action="">
-            <h3>Create New Listing</h3>
-            <label for="productTitle">Product Title</label> <br>
-            <input id="productTitle" class="input" name="productTitle" type="text" placeholder="e.g Water Heater" required> <br>
-            <span class="price_catego">
-                <span class="price_input">
-                <label for="price">Price</label> <br>
-                <input id="price" name="price" type="text" placeholder="e.g Le 500" required> 
-                </span><br>
-                <span class="category_input">
-                    <label for="category">Category</label> <br>
-                    <select id="category" name="category" required>
-                        
-                        <option value="Electronics">Electronics</option>
-                        <option value="Accessories">Accessories</option>
-                        <option value="Clothing">Clothing</option>
-                        <option value="Books">Books</option>
-                        <option value="Furniture">Furniture</option>
-                        <option value="Other">Other</option>
-                    </select>
-                </span>
-            </span>
-            <br>
-            <label for="Description">Description</label> <br>
-            <textarea id="Description" name="Description" placeholder="Describe the product condition....." required></textarea> <br>
-            
-            <input type="file" id="productImage" name="productImage" required> <br>
-            <h4 style="text-align: center;">INTERNAL ADMIN RECORDS</h4>
-            <input type="text" class="input" placeholder="Full name"> <br>
-            <label for="contact info">Contact Info</label>
-            <input type="text" class="input" placeholder="Email/ Phone/ WhatsApp"> <br>
-            <label for="Agreement">Agreed Payment Method</label> <br>
-            <input type="text" class="input" placeholder="Bank/ Orange Money/ AfriMoney"> <br>
-            <label for="private Note">Private Note</label> <br>
-            <textarea name="Private Note" id="">Internal notes about item verification or payment method........</textarea> <br>
-            <button type="submit" style="margin-top:12px;padding:8px 14px;background:#0756e7;color:#fff;border:none;border-radius:6px;cursor:pointer; width: 300px;">Publish Listing</button>
-        </form>
-    </main>
-        <script src="js/main.js"></script>
-        <script>
-            // Handle create listing form: store listing in sessionStorage then redirect to dashboard
-            const form = document.getElementById('createListingForm');
-            if (form) {
-                form.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    const title = document.getElementById('productTitle').value.trim();
-                    const price = document.getElementById('price').value.trim();
-                    const category = document.getElementById('category').value;
-                    const description = document.getElementById('Description').value.trim();
-                    const fileInput = document.getElementById('productImage');
+  <header class="admin_header">
+    <span>
+      <h3 style="color:blue; font-weight:800;">ADMIN PORTAL</h3>
+      <h4>Dashboard</h4>
+    </span>
+    <nav>
+      <ul>
+        <li><a href="adminDashboard.html">Dashboard</a></li>
+        <li><a href="createListing.html">Create Listing</a></li>
+        <li><a href="index.htm">Home</a></li>
+      </ul>
+    </nav>
+  </header>
 
-                    function saveListing(imageData) {
-                        const listing = {
-                            title, price, category, description, image: imageData || 'images/placeholder.png'
-                        };
-                        const arr = JSON.parse(sessionStorage.getItem('tempListings') || '[]');
-                        arr.push(listing);
-                        sessionStorage.setItem('tempListings', JSON.stringify(arr));
-                        // go to dashboard to see the temporary listing
-                        window.location.href = 'adminDashboard.html';
-                    }
+  <main>
+    <form id="createListingForm">
+      <h3>Create New Listing</h3>
 
-                    if (fileInput && fileInput.files && fileInput.files[0]) {
-                        const reader = new FileReader();
-                        reader.onload = function(evt) { saveListing(evt.target.result); };
-                        reader.readAsDataURL(fileInput.files[0]);
-                    } else {
-                        saveListing(null);
-                    }
-                });
-            }
-        </script>
+      <label for="productTitle">Product Title</label>
+      <input id="productTitle" class="form-input" type="text" placeholder="e.g Water Heater" required>
+
+      <div class="price-category">
+        <div>
+          <label for="price">Price</label>
+          <input id="price" type="text" placeholder="e.g Le 500" required>
+        </div>
+        <div>
+          <label for="category">Category</label>
+          <select id="category" required>
+            <option value="Electronics">Electronics</option>
+            <option value="Accessories">Accessories</option>
+            <option value="Clothing">Clothing</option>
+            <option value="Books">Books</option>
+            <option value="Furniture">Furniture</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+      </div>
+
+      <label for="description">Description</label>
+      <textarea id="description" placeholder="Describe the product condition....." required></textarea>
+
+      <input type="file" id="productImage" accept="image/*" required>
+
+      <h4 style="text-align:center;">INTERNAL ADMIN RECORDS</h4>
+      <input type="text" class="form-input" placeholder="Full Name">
+      <label>Contact Info</label>
+      <input type="text" class="form-input" placeholder="Email / Phone / WhatsApp">
+      <label>Agreed Payment Method</label>
+      <input type="text" class="form-input" placeholder="Bank / Orange Money / AfriMoney">
+      <label>Private Note</label>
+      <textarea placeholder="Internal notes about item verification or payment method..."></textarea>
+
+      <button type="submit" class="btn-publish">Publish Listing</button>
+    </form>
+  </main>
+
+  <script src="js/main.js"></script>
+  <script>
+    // Handle create listing: save to sessionStorage then redirect to dashboard
+    const form = document.getElementById('createListingForm');
+    if (form) {
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const title       = document.getElementById('productTitle').value.trim();
+        const price       = document.getElementById('price').value.trim();
+        const category    = document.getElementById('category').value;
+        const description = document.getElementById('description').value.trim();
+        const fileInput   = document.getElementById('productImage');
+
+        function saveListing(imageData) {
+          const listing = { title, price, category, description, image: imageData || 'images/placeholder.png' };
+          const arr = JSON.parse(sessionStorage.getItem('tempListings') || '[]');
+          arr.push(listing);
+          sessionStorage.setItem('tempListings', JSON.stringify(arr));
+          window.location.href = 'adminDashboard.html';
+        }
+
+        if (fileInput?.files?.[0]) {
+          const reader = new FileReader();
+          reader.onload = evt => saveListing(evt.target.result);
+          reader.readAsDataURL(fileInput.files[0]);
+        } else {
+          saveListing(null);
+        }
+      });
+    }
+  </script>
 </body>
 </html>
